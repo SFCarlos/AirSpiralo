@@ -24,9 +24,15 @@ const UPDATE_INTERVALS = {
 const DATA_URLS = {
   sequence: { // Datos de secuencia para máquinas específicas
     A: "datasets/test_A.xml",
+<<<<<<< HEAD
     B: "datasets/test_B.xml",
     //C: "http://10.2.160.72:8081/xml"
     C: "datasets/test_C.xml"
+=======
+    B: "test_B.xml",
+    C: "http://10.2.160.72:8081/xml"
+    //C: "test_C.xml"
+>>>>>>> 46bf6245a38ba5ebfc24278a8dd70c38889914dc
   },
   production: "datasets/production_data.xml" // Datos de producción para todas las máquinas
 };

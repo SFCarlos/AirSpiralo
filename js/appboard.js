@@ -27,6 +27,9 @@ const DATA_URLS = {
     B: "datasets/test_B.xml",
     //C: "http://10.2.160.72:8081/xml"
     C: "datasets/test_C.xml"
+    
+    //C: "http://10.2.160.72:8081/xml"
+   
   },
   production: "datasets/production_data.xml" // Datos de producción para todas las máquinas
 };

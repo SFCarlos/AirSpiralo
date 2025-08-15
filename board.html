@@ -1,0 +1,237 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Production Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styleboard.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gaugeJS@1.3.6/dist/gauge.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Contenedor principal para las gráficas de secuencia -->
+    <div class="sequence-charts">
+        <!-- Máquina A -->
+        <div class="chart-container" id="sequence_chart_container_A">
+            <div id="currentStatus_A" class="current-status-display"></div>
+            <div id="sequence_chart_A" style="height: 60px;"></div>
+
+        </div>
+
+        <!-- Máquina B -->
+        <div class="chart-container" id="sequence_chart_container_B">
+            <div id="currentStatus_B" class="current-status-display"></div>
+            <div id="sequence_chart_B" style="height: 60px;"></div>
+
+        </div>
+
+        <!-- Máquina C -->
+        <div class="chart-container" id="sequence_chart_container_C">
+            <div id="currentStatus_C" class="current-status-display"></div>
+            <div id="sequence_chart_C" style="height: 60px;"></div>
+
+        </div>
+    </div>
+    <!-- Contenedor para UpdatedTime -->
+    <div class="dashboard" id="update-time-container" data-machine="Time" data-ribbon-text="Last Server Update">
+
+
+        <div class="time-display">
+
+            <span id="update-time-value">Loading...</span>
+
+            <div class="clock">
+                <div class="hours">
+                    <div class="first">
+                        <div class="number">0</div>
+                    </div>
+                    <div class="second">
+                        <div class="number">0</div>
+                    </div>
+                </div>
+                <div class="tick">:</div>
+                <div class="minutes">
+                    <div class="first">
+                        <div class="number">0</div>
+                    </div>
+                    <div class="second">
+                        <div class="number">0</div>
+                    </div>
+                </div>
+                <div class="tick">:</div>
+                <div class="seconds">
+                    <div class="first">
+                        <div class="number">0</div>
+                    </div>
+                    <div class="second infinite">
+                        <div class="number">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contenedor grid para los 9 gauges -->
+    <div class="gauges-grid">
+        <!-- Gauge Máquina A -->
+        <div class="dashboard" id="gauge_container_A" data-machine="A" data-ribbon-text="Flow A ➤ GB Automatic Line">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_A"></span></div>
+                <div><span id="nombreProducto_A"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_A" width="300" height="140"></canvas>
+                <div id="startLabel_A" class="extreme-label">0</div>
+                <div id="endLabel_A" class="extreme-label">0</div>
+                <div id="diferencia_A" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+        <!-- Gauge Máquina B -->
+        <div class="dashboard" id="gauge_container_B" data-machine="B" data-ribbon-text="Flow B ➤ GB Automatic Line">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_B"></span></div>
+                <div><span id="nombreProducto_B"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_B" width="300" height="140"></canvas>
+                <div id="startLabel_B" class="extreme-label">0</div>
+                <div id="endLabel_B" class="extreme-label">0</div>
+                <div id="diferencia_B" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+        <!-- Gauge Máquina C -->
+        <div class="dashboard" id="gauge_container_C" data-machine="C" data-ribbon-text="Flow C ➤ GB Automatic Line">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_C"></span></div>
+                <div><span id="nombreProducto_C"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_C" width="300" height="140"></canvas>
+                <div id="startLabel_C" class="extreme-label">0</div>
+                <div id="endLabel_C" class="extreme-label">0</div>
+                <div id="diferencia_C" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+        <!-- Gauge Máquina D -->
+        <div class="dashboard" id="gauge_container_D" data-machine="D" data-ribbon-text=" Flow D ➤ D-Hatting">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_D"></span></div>
+                <div><span id="nombreProducto_D"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_D" width="300" height="140"></canvas>
+                <div id="startLabel_D" class="extreme-label">0</div>
+                <div id="endLabel_D" class="extreme-label">0</div>
+                <div id="diferencia_D" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+        <!-- Gauge Máquina E -->
+        <div class="dashboard" id="gauge_container_E" data-machine="E" data-ribbon-text="Flow E ➤ GB-Press">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_E"></span></div>
+                <div><span id="nombreProducto_E"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_E" width="300" height="140"></canvas>
+                <div id="startLabel_E" class="extreme-label">0</div>
+                <div id="endLabel_E" class="extreme-label">0</div>
+                <div id="diferencia_E" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+        <!-- Gauge Máquina F -->
+        <div class="dashboard" id="gauge_container_F" data-machine="F" data-ribbon-text="Flow F ➤ GB (CEMSA)">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_F"></span></div>
+                <div><span id="nombreProducto_F"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_F" width="300" height="140"></canvas>
+                <div id="startLabel_F" class="extreme-label">0</div>
+                <div id="endLabel_F" class="extreme-label">0</div>
+                <div id="diferencia_F" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+        <!-- Gauge Máquina G -->
+        <div class="dashboard" id="gauge_container_G" data-machine="G" data-ribbon-text="Flow G ➤ GB (Welding)">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_G"></span></div>
+                <div><span id="nombreProducto_G"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_G" width="300" height="140"></canvas>
+                <div id="startLabel_G" class="extreme-label">0</div>
+                <div id="endLabel_G" class="extreme-label">0</div>
+                <div id="diferencia_G" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+        <!-- Gauge Máquina H -->
+        <div class="dashboard" id="gauge_container_H" data-machine="H" data-ribbon-text="Flow H ➤ GV">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_H"></span></div>
+                <div><span id="nombreProducto_H"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_H" width="300" height="140"></canvas>
+                <div id="startLabel_H" class="extreme-label">0</div>
+                <div id="endLabel_H" class="extreme-label">0</div>
+                <div id="diferencia_H" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+        <!-- Gauge Máquina I -->
+        <div class="dashboard" id="gauge_container_I" data-machine="I" data-ribbon-text="Flow I ➤ DB, ZR, GVH">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_I"></span></div>
+                <div><span id="nombreProducto_I"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_I" width="300" height="140"></canvas>
+                <div id="startLabel_I" class="extreme-label">0</div>
+                <div id="endLabel_I" class="extreme-label">0</div>
+                <div id="diferencia_I" class="diferencia-display">0</div>
+            </div>
+        </div>
+        <!-- Gauge Máquina J -->
+        <div class="dashboard" id="gauge_container_J" data-machine="J" data-ribbon-text="Flow J ➤ Expanding">
+
+            <div class="top">
+                <div><span id="tiempoEstimado_J"></span></div>
+                <div><span id="nombreProducto_J"></span></div>
+            </div>
+            <div class="gauge-container">
+                <canvas id="gaugeCanvas_J" width="300" height="140"></canvas>
+                <div id="startLabel_J" class="extreme-label">0</div>
+                <div id="endLabel_J" class="extreme-label">0</div>
+                <div id="diferencia_J" class="diferencia-display">0</div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/clock.min.js"></script>
+    <script src="js/appboard.js"></script>
+</body>
+
+</html>

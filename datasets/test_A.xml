@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Events>
+    <Event>
+        <State>OPERATING</State>
+        <Start>2025-08-02T08:00:00</Start>
+        <End>2025-08-02T10:15:30</End>
+        <Duration>02:15:30</Duration>
+    </Event>
+    <Event>
+        <State>STOPPED</State>
+        <Start>2025-08-02T10:15:30</Start>
+        <End>2025-08-02T10:25:00</End>
+        <Duration>00:09:30</Duration>
+    </Event>
+    <Event>
+        <State>OPERATING</State>
+        <Start>2025-08-02T10:25:00</Start>
+        <End>2025-08-02T13:00:00</End>
+        <Duration>02:35:00</Duration>
+    </Event>
+    <Event>
+        <State>STOPPED</State>
+        <Start>2025-08-02T13:00:00</Start>
+        <End>2025-08-02T13:45:20</End>
+        <Duration>00:45:20</Duration>
+    </Event>
+    <Event>
+        <State>OPERATING</State>
+        <Start>2025-08-02T13:45:20</Start>
+        <End>2025-08-02T16:10:10</End>
+        <Duration>02:24:50</Duration>
+    </Event>
+</Events>

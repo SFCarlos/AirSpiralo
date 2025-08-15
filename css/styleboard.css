@@ -1,0 +1,369 @@
+:root {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #252525;
+  --bg-tertiary: #333333;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent-green: #4caf50;
+  --accent-red: #f44336;
+  --accent-orange: #ff9800;
+  --accent-blue: #2196f3;
+  --border-radius: 16px;
+  --shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 10px;
+  line-height: 1.6;
+}
+
+/* Modern Card Design */
+.chart-container, .dashboard {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chart-container:hover, .dashboard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Status Indicators - Modernized */
+.current-status-display {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 1px;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 5px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 8px 0;
+  transition: var(--transition);
+}
+
+/* Status Colors with Modern Opacity */
+.status-container.operating {
+  background-color: rgba(76, 175, 80, 0.15);
+  border-left: 4px solid var(--accent-green);
+}
+
+.status-container.stopped {
+  background-color: rgba(244, 67, 54, 0.15);
+  border-left: 4px solid var(--accent-red);
+}
+
+.status-container.idle {
+  background-color: rgba(255, 152, 0, 0.15);
+  border-left: 4px solid var(--accent-orange);
+}
+
+.status-text {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+}
+
+/* Modern Gauge Grid */
+.gauges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 0;
+}
+
+/* Dashboard Cards */
+.dashboard {
+  padding: 20px;
+  padding-left: 60px; /* Space for ribbon */
+}
+
+.dashboard .top  {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 100;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+   margin-top: 3px;
+}
+.top #tiempoEstimado_A,#tiempoEstimado_B,#tiempoEstimado_C,#tiempoEstimado_D,#tiempoEstimado_E,#tiempoEstimado_F,#tiempoEstimado_G,#tiempoEstimado_H,#tiempoEstimado_I,#tiempoEstimado_J
+{
+   font-family: 'Roboto Mono', monospace;
+  font-size: 29px;
+  font-weight: 500;
+  color: var(--text-primary);
+ 
+  background: rgba(255,255,255,0.08);
+  padding: 6px 12px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
+}
+
+
+
+/* New horizontal ribbon style */
+.dashboard::before {
+  content:attr(data-ribbon-text);
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  color: rgba(13, 170, 198, 0.911);
+  font-weight: 100;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  text-transform: none ;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+/* Adjust dashboard padding to accommodate new ribbon */
+.dashboard {
+  padding-top: 48px; /* Make space for the ribbon */
+  padding-left: 24px; /* Reset left padding */
+}
+
+
+/* Gauge Container Modernization */
+.gauge-container {
+  position: relative;
+  width: 100%;
+  
+  margin: 10px auto;
+}
+
+.gauge-value {
+    
+  font-size: 28px;
+  font-weight: 700;
+  margin: 16px 0;
+  transition: var(--transition);
+}
+
+
+/* Timeline Modernization */
+.timeline-container {
+  position: relative;
+  height: 15px;
+  margin-top: 1px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.timeline-mark {
+  position: relative;
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding-top: 1px;
+}
+
+/* Time Display Modernization */
+.time-display {
+  font-size: 2.0rem;
+  font-family: 'Roboto Mono', monospace;
+  color: var(--accent-green);
+  text-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  padding: 1px 0;
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  
+}
+/* Estilos para el reloj */
+.clock {
+  height: 4vh;
+  color: #4caf50;
+  font-size: 4vh;
+  font-family: sans-serif;
+  line-height: 4.4vh;
+  display: flex;
+  position: relative;
+  /*background: green;*/
+  overflow: hidden;
+   margin-left: auto;
+    margin-right: 20px;
+   
+}
+
+.clock::before, .clock::after {
+  content: '';
+  width: 7ch;
+  height: 3vh;
+   background: linear-gradient(to top, transparent 80%, var(--bg-secondary) 90%);
+  position: absolute;
+  z-index: 1;
+}
+
+.clock::after {
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 80%, var(--bg-secondary) 90%)
+}
+
+.clock > div {
+  display: flex;
+}
+
+.tick {
+  line-height: 4vh;
+}
+
+.tick-hidden {
+  opacity: 0;
+}
+
+.move {
+  animation: move linear 1s infinite;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(0vh);
+  }
+  to {
+    transform: translateY(-4vh);
+  }
+}
+
+/* Animation Modernization */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotating-icon {
+  animation: rotate 1.5s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.5));
+}
+
+/* Extreme Labels Modernization */
+.extreme-label {
+    font-family: 'Roboto Mono', monospace;
+  position: absolute;
+  bottom: -20px;
+  font-size: 25px;
+  font-weight: 100;
+  background: rgba(255,255,255,0.08);
+  padding: 6px 12px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
+}
+
+.extreme-label:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-3px);
+}
+
+/* Tooltip Modernization */
+.google-visualization-tooltip {
+  background-color: var(--bg-tertiary) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: var(--shadow) !important;
+  padding: 12px !important;
+  font-size: 14px !important;
+  backdrop-filter: blur(10px);
+}
+/* Modern Gauge Label Styling */
+.gauge-labels-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 10px;
+}
+
+
+
+#startLabel_A, #startLabel_B, #startLabel_C, 
+#startLabel_D, #startLabel_E, #startLabel_F,
+#startLabel_G, #startLabel_H, #startLabel_I,#startLabel_J{
+    left: 10%;
+    transform: translateX(-50%);
+}
+
+#endLabel_A, #endLabel_B, #endLabel_C,
+#endLabel_D, #endLabel_E, #endLabel_F,
+#endLabel_G, #endLabel_H, #endLabel_I,#endLabel_J {
+    right: 10%;
+    transform: translateX(50%);
+}
+
+/* Ajustamos el contenedor del valor del gauge */
+.gauge-value-container {
+  text-align: center;
+  margin-top: -20px; /* Ajuste para acercar al gauge */
+  margin-bottom: 15px;
+}
+
+.gauge-value {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--accent-green);
+  margin: 5px 0;
+}
+
+.diferencia-display {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    width: 100%;
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .gauges-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard {
+    padding-left: 50px;
+  }
+  
+  .gauge-side-ribbon {
+    width: 36px;
+    font-size: 20px;
+  }
+}

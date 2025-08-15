@@ -1,0 +1,63 @@
+<ProductionLineData>
+    <UpdatedTime>2025-08-04T11:20:58</UpdatedTime> 
+    <ProductionLine id="L10_A">
+        <Sequence>GB4.010</Sequence>
+        <TotalToProduce>3204</TotalToProduce>
+        <TotalProduced>1350</TotalProduced>
+        <LoadOfLines>15.85</LoadOfLines>
+    </ProductionLine>
+
+    <ProductionLine id="L10_B">
+        <Sequence>GB4.012K</Sequence> <TotalToProduce>3369</TotalToProduce>
+        <TotalProduced>1652</TotalProduced>
+        <LoadOfLines>16.00</LoadOfLines>
+    </ProductionLine>
+
+    <ProductionLine id="L10_C">
+        <Sequence>GB9.010</Sequence> <TotalToProduce>4500</TotalToProduce>
+        <TotalProduced>3698</TotalProduced>
+        <LoadOfLines>15.33</LoadOfLines>
+    </ProductionLine>
+
+    <ProductionLine id="L10_D">
+        <Sequence>02HF.GVH020.010-1</Sequence> <TotalToProduce>800</TotalToProduce>
+        <TotalProduced>200</TotalProduced>
+        <LoadOfLines>12.50</LoadOfLines>
+    </ProductionLine>
+
+    <ProductionLine id="L10_E">
+        <Sequence>02HF.GB1SCALE.015</Sequence> <TotalToProduce>1100</TotalToProduce>
+        <TotalProduced>1100</TotalProduced>
+        <LoadOfLines>00.00</LoadOfLines>
+    </ProductionLine>
+
+    <ProductionLine id="L10_F">
+        <Sequence>31210.GB9.008K</Sequence> <TotalToProduce>700</TotalToProduce>
+        <TotalProduced>50</TotalProduced>
+        <LoadOfLines>11.86</LoadOfLines>
+    </ProductionLine>
+
+    <ProductionLine id="L10_G">
+        <Sequence>GB3.016K</Sequence> <TotalToProduce>1300</TotalToProduce>
+        <TotalProduced>300</TotalProduced>
+        <LoadOfLines>23.08</LoadOfLines>
+    </ProductionLine>
+
+    <ProductionLine id="L10_H">
+        <Sequence>37949.GV025.015</Sequence> <TotalToProduce>1000</TotalToProduce>
+        <TotalProduced>900</TotalProduced>
+        <LoadOfLines>90.00</LoadOfLines>
+    </ProductionLine>
+
+    <ProductionLine id="L10_I">
+        <Sequence>39682.ZR020.022-025K</Sequence> <TotalToProduce>950</TotalToProduce>
+        <TotalProduced>0</TotalProduced>
+        <LoadOfLines>16.00</LoadOfLines>
+    </ProductionLine>
+     <ProductionLine id="L10_J">
+        <Sequence>50087.ZRH012-020.073</Sequence> <TotalToProduce>560</TotalToProduce>
+        <TotalProduced>500</TotalProduced>
+        <LoadOfLines>3.00</LoadOfLines>
+    </ProductionLine>
+
+</ProductionLineData>

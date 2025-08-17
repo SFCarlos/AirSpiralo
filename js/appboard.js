@@ -23,12 +23,12 @@ const UPDATE_INTERVALS = {
 // URLs de los archivos de datos.
 const DATA_URLS = {
   sequence: { // Datos de secuencia para máquinas específicas
-    A: "test_A.xml",
-    B: "test_B.xml",
+    A: "datasets/test_A.xml",
+    B: "datasets/test_B.xml",
    // C: "http://10.2.160.72:8081/xml"
-    C: "test_C.xml"
+    C: "datasets/test_C.xml"
   },
-  production: "production_data.xml" // Datos de producción para todas las máquinas
+  production: "datasets/production_data.xml" // Datos de producción para todas las máquinas
 };
 
 // Objetos para almacenar el estado y los datos de la aplicación.

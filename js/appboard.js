@@ -23,17 +23,12 @@ const UPDATE_INTERVALS = {
 // URLs de los archivos de datos.
 const DATA_URLS = {
   sequence: { // Datos de secuencia para máquinas específicas
-    A: "datasets/test_A.xml",
-
-    B: "datasets/test_B.xml",
-    //C: "http://10.2.160.72:8081/xml"
-  
-    C: "datasets/test_C.xml"
-
-  
-
+    A: "test_A.xml",
+    B: "test_B.xml",
+   // C: "http://10.2.160.72:8081/xml"
+    C: "test_C.xml"
   },
-  production: "datasets/production_data.xml" // Datos de producción para todas las máquinas
+  production: "production_data.xml" // Datos de producción para todas las máquinas
 };
 
 // Objetos para almacenar el estado y los datos de la aplicación.
@@ -339,7 +334,29 @@ function drawSequenceChart(machineId) {
   const sequenceChart = new google.visualization.BarChart(document.getElementById(chartId));
   sequenceChart.draw(data, options);
 }
+// Función para actualizar la barra de progreso
+function updateProgressBar(percent) {
+    const progressBar = document.getElementById('server-progress-bar');
+    const progressText = document.getElementById('progress-percent');
+    
+    // Actualiza el ancho de la barra
+    progressBar.style.width = `${percent}%`;
+    
+    // Actualiza el texto
+    progressText.textContent = ` Order Fill: ${percent}%`;
+    
+    // Cambia el gradiente según el porcentaje
+    if (percent < 30) {
+        progressBar.style.background = 'linear-gradient(to right, rgba(224, 56, 67, 0.6), rgba(224, 56, 67, 0.4))';
+    } else if (percent < 70) {
+        progressBar.style.background = 'linear-gradient(to right, rgba(255, 180, 0, 0.6), rgba(255, 220, 0, 0.4))';
+    } else {
+        progressBar.style.background = 'linear-gradient(to right, rgba(0, 255, 100, 0.6), rgba(0, 255, 180, 0.4))';
+    }
+}
 
+// Ejemplo de uso (puedes llamar esto desde tu función loadAllData)
+// updateProgressBar(75); // Esto establecería la barra al 75%
 /**
  * Crea una instancia de un medidor (gauge) y devuelve funciones para actualizarlo.
  * @param {string} machineId El ID de la máquina asociada.
@@ -348,7 +365,8 @@ function drawSequenceChart(machineId) {
 function createGauge(machineId) {
   // Configuración inicial del medidor.
   const gauge = new Gauge(document.getElementById(`gaugeCanvas_${machineId}`)).setOptions({
-  angle: 0.10,
+  
+    angle: 0.10,
   lineWidth: 0.25,
   pointer: {
     length: 0.5,
@@ -356,9 +374,10 @@ function createGauge(machineId) {
   },
   colorStart: '#e03843ff',   // azul claro
   colorStop: '#8FCF6F',    // verde claro
-  strokeColor: '#E0E0E0',  // color del fondo del gauge
+  strokeColor: '#4d4949cf',  // color del fondo del gauge
   generateGradient: true,  // activa el gradiente
-  percentColors: [[0.0, "#e03843ff"], [1.0, "#8FCF6F"]] // opcional si quieres que el color cambie con el valor
+  percentColors: [[0.0, "#e03843ff"], [1.0, "#8FCF6F"]] ,// opcional si quieres que el color cambie con el valor
+
 });
 
   gauge.maxValue = 100;
@@ -411,6 +430,8 @@ function createGauge(machineId) {
 async function loadAllData() {
   console.log("🔴 INICIANDO loadAllData"); // Mensaje muy visible
   try {
+
+    updateProgressBar(96); // Esto establecería la barra al 75%
     // 1. Cargar y procesar los datos de producción para todas las máquinas.
     const productionResponse = await fetch(DATA_URLS.production);
     const productionData = await parseProductionData(await productionResponse.text());
